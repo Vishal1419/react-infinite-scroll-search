@@ -1,0 +1,18 @@
+.textbox-container {
+  .label-text {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .textbox {
+    border: 1px solid rgba($accent-color, 0.6);
+    color: $text-color;
+    min-height: 2rem;
+    resize: none;
+    font-family: $font-family;
+    padding: 0.5rem;
+    &:focus {
+      outline: 1px solid $accent-color;
+      outline-offset: -1px;
+    }
+  }
+}

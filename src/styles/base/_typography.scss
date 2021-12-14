@@ -1,0 +1,72 @@
+h1, h2, h3, h4, h5, h6 {
+  color: $accent-color;
+  font-weight: 600;
+}
+
+h1 {
+  @include fluid-type(1.5rem, 2rem);
+  margin: 2.5rem 0; // Fallback for older browsers
+  @supports (margin: clamp(1, 1, 1)) {
+    margin: fluid-type(1.5rem, 2.5rem) 0;
+  }
+}
+
+h2 {
+  @include fluid-type(1.17rem, 1.5rem);
+  margin: 2rem 0; // Fallback for older browsers
+  @supports (margin: clamp(1, 1, 1)) {
+    margin: fluid-type(1.17rem, 2rem) 0;
+  }
+}
+
+h3 {
+  @include fluid-type(1rem, 1.17rem);
+  margin: 1.5rem 0; // Fallback for older browsers
+  @supports (margin: clamp(1, 1, 1)) {
+    margin: fluid-type(1rem, 1.5rem) 0;
+  }
+}
+
+h4 {
+  @include fluid-type(0.83rem, 1rem);
+  margin: 1.17rem 0; // Fallback for older browsers
+  @supports (margin: clamp(1, 1, 1)) {
+    margin: fluid-type(0.83rem, 1.17rem) 0;
+  }
+}
+
+h5 {
+  @include fluid-type(0.67rem, 0.83rem);
+  margin: 1rem 0; // Fallback for older browsers
+  @supports (margin: clamp(1, 1, 1)) {
+    margin: fluid-type(0.67rem, 1rem) 0;
+  }
+}
+
+h6 {
+  @include fluid-type(0.5rem, 0.67rem);
+  margin: 0.83rem 0; // Fallback for older browsers
+  @supports (margin: clamp(1, 1, 1)) {
+    margin: fluid-type(0.5rem, 0.83rem) 0;
+  }
+}
+
+p {
+  @include fluid-type(0.83rem, 1rem);
+  line-height: 1.69;
+  margin: 1.17rem 0; // Fallback for older browsers
+  @supports (margin: clamp(1, 1, 1)) {
+    margin: fluid-type(0.83rem, 1.17rem) 0;
+  }
+  white-space: pre-line;
+}
+
+a {
+  @include fluid-type(0.83rem, 1rem);
+  color: $accent-color;
+}
+
+sup {
+  @include fluid-type(0.83rem, 1rem);
+  vertical-align: super;
+}

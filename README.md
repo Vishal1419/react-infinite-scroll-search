@@ -1,44 +1,93 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# Frontend Task - React, Typescript
 
-## Available Scripts
+Create a `React(v17)` application using `Typescript(v4)` which shows a tables with infinite-scrolling and a search bar.
 
-In the project directory, you can run:
+## Technical specifications:
 
-### `yarn start`
+- Whole application will use **react hooks** only, i.e. no class component should be used.
+- For styling: you can use `SCSS`, `styled-components` or `JSS`.
+- Use **redux** for application global state management
+  - [Optional] You can use [redux-saga](https://github.com/redux-saga/redux-saga) as middleware.
+  - [Optional] To reduce redux boilerplate code you can use [redux-toolkit](https://github.com/reduxjs/redux-toolkit).
+- Use **axios** for server api calls.
+- Create **API mocks**, you can use [axios-mock-adapter](https://github.com/ctimmerm/axios-mock-adapter) or any library of your choice or even create your own.
+- Implement **infinite scrolling** in the table:
+  - Suppose total items that could be fetched from server is 1000.
+  - Then fetch only 20 items in a single request.
+  - Further data should be fetched only when user scrolls down.
+- Input to *search-bar* will send request to server, minimum 3 characters are required to send a server request.
+- Try to reduce server request while user is typing in *search-bar*
+- Clicking on any table-row will open a dialog which will show the detailed contents of that table row.
+- Handle loading states.
+- Handle **API errors** like `401` and `403` HTTP status codes
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## API specifications
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Create an API mocker with following specifications:
 
-### `yarn test`
+```HTTP
+GET /students?searchTerm=<student-name>&limit=20&skip=20 HTTP/1.1
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Response:
 
-### `yarn build`
+HTTP/1.1 200 OK
+Content-Type: application/json
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+{
+    "totalRecords": 1000,
+    "students": [
+        {
+            "name": "<student name>",
+            "avatarURL": "<user avatar url>",
+            "lecturesAttended": 10,
+            "totalLectures": 30,
+            "marks": {
+                "<subject-code>": {
+                    "subjectTitle": "Introduction to mathematics",
+                    "totalMarks": 100,
+                    "markesObtained": 56
+                },
+                # <subject-code> is a dynamic key
+            },
+        },
+        # remaining 19 items...
+    ]
+}
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Example marks object to explain the `<subject-code>` dynamic key
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+{
+    ...
+    "marks": {
+        "mth101": {
+            "subjectTitle": "Introduction to mathematics",
+            "totalMarks": 100,
+            "markesObtained": 56
+        },
+        "eng112": {
+            "subjectTitle": "English diagnostics",
+            "totalMarks": 100,
+            "markesObtained": 76
+        }
+    }
+}
+```
 
-### `yarn eject`
+> Notes: All query parameters are optional.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# How to run this project:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Run this command to install project dependencies:
+```
+yarn
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+And then run this command to run the project:
+```
+yarn start
+```
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Live Project Link

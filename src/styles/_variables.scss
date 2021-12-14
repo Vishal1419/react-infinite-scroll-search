@@ -1,0 +1,33 @@
+$background-color: #eee;
+$text-color: #14131d;
+$text-color-light: #999;
+
+$accent-color: #cf9243;
+$accent-light: #fff;
+
+$disabled-dark: #444;
+$disabled-light: #bbb;
+
+$border-color: #eee;
+
+$error-color: #ff4343;
+
+$font-family: 'Montserrat', sans-serif;
+
+@mixin laptop {
+  @media screen and (max-width: 992px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: 576px) {
+    @content;
+  }
+}

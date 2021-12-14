@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: $font-family;
+  font-weight: 400;
+  background-color: $background-color;
+  height: 100%
+}
+
+#root, #root > .container {
+  height: 100%;
+}

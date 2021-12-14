@@ -1,0 +1,28 @@
+.Toastify__toast {
+  &--success {
+    background: $accent-light;
+    color: $text-color;
+  }
+  &--error {
+    background: $accent-color;
+    color: $accent-light;
+  }
+}
+.Toastify__close-button {
+  &--success {
+    color: $text-color;
+  }
+  &--error {
+    color: $accent-light;
+  }
+}
+
+.Toastify__progress-bar {
+  bottom: 1px;
+  &--success {
+    background-color: $accent-color;
+  }
+  &--error {
+    background-color: $accent-light;
+  }
+}

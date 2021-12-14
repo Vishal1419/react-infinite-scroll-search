@@ -1,0 +1,12 @@
+.home {
+  .user {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    .avatar {
+      height: 48px;
+      width: 48px;
+      border-radius: 50%;
+    }
+  }
+}
