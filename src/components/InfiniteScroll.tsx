@@ -35,6 +35,7 @@ const InfiniteScroll = <T extends any>({
         fetchItems(page + 1, limit);
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inView]);
 
   return (
